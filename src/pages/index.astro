@@ -1,0 +1,348 @@
+---
+import Landing from '../layouts/Landing.astro';
+
+const features = [
+  {
+    icon: '🎯',
+    title: '9 Specialized Agents',
+    desc: 'CSO, Senior Dev, Junior Dev, Senior Researcher, Junior Researcher, Editor, QA, Security Auditor, and PM — each with defined roles and capabilities.',
+  },
+  {
+    icon: '📋',
+    title: 'Task Board',
+    desc: 'Create tasks, assign to agents, track progress. Kanban-style workflow with automatic status updates as agents complete work.',
+  },
+  {
+    icon: '🤖',
+    title: 'Autonomous Execution',
+    desc: 'Agents write code, commit to git, run tests, and move tasks through your pipeline — no hand-holding required.',
+  },
+  {
+    icon: '📊',
+    title: 'Cost Tracking',
+    desc: 'See token usage, runtime, and estimated cost per task, project, and agent. No bill surprises.',
+  },
+  {
+    icon: '🔍',
+    title: 'Automated QA',
+    desc: 'Every completed task gets reviewed against done criteria by the QA agent before it closes. Ship with confidence.',
+  },
+  {
+    icon: '📈',
+    title: 'Weekly Reports',
+    desc: 'Auto-generated stakeholder reports delivered to Slack every week. Keep everyone informed without effort.',
+  },
+  {
+    icon: '🚀',
+    title: 'One-Click Deploy',
+    desc: 'Available as a DigitalOcean Marketplace 1-Click App. Up and running in 5 minutes, no DevOps expertise needed.',
+  },
+  {
+    icon: '🔓',
+    title: 'Self-Hosted',
+    desc: 'Your code, your data, your infrastructure. No SaaS lock-in, no data leaving your server, no subscription required.',
+  },
+];
+
+const steps = [
+  {
+    num: '01',
+    title: 'Deploy a Droplet',
+    desc: 'Launch the Mission Clawtrol 1-Click App from the DigitalOcean Marketplace. Pick your plan, click create.',
+    code: '# DigitalOcean Marketplace → Mission Clawtrol\n# Select plan: $12/mo (2GB) or $24/mo (4GB)',
+  },
+  {
+    num: '02',
+    title: 'Run mc-setup',
+    desc: 'SSH in and run one command. Enter your Anthropic API key and you\'re done.',
+    code: 'ssh root@your-droplet-ip\nmc-setup\n# Enter your Anthropic API key when prompted',
+  },
+  {
+    num: '03',
+    title: 'Create a Project',
+    desc: 'Open the dashboard, create a project, describe what you\'re building. The CSO helps define the scope.',
+    code: '# Dashboard → New Project\n# Name: "my-saas-app"\n# Description: "SaaS platform with auth..."',
+  },
+  {
+    num: '04',
+    title: 'Agents Execute',
+    desc: 'Create tasks, assign to agents, click Run. They write code, review each other\'s work, and ship.',
+    code: '# Agents autonomously:\n# ✓ Write & commit code\n# ✓ Run QA review\n# ✓ Move task to Done',
+  },
+];
+
+const agents = [
+  { role: 'CSO', emoji: '🎯', desc: 'Chief Strategist — delegates, plans, orchestrates' },
+  { role: 'Senior Dev', emoji: '💻', desc: 'Architecture, complex features, code review' },
+  { role: 'Junior Dev', emoji: '🔧', desc: 'Implementation, bug fixes, tests' },
+  { role: 'Sr. Researcher', emoji: '🔬', desc: 'Deep research, analysis, whitepapers' },
+  { role: 'Jr. Researcher', emoji: '📚', desc: 'Data gathering, fact-checking, summaries' },
+  { role: 'Editor', emoji: '✍️', desc: 'Docs, blog posts, copy, communications' },
+  { role: 'QA', emoji: '🧪', desc: 'Test plans, review, quality gates' },
+  { role: 'Security', emoji: '🛡️', desc: 'Security audits, vulnerability review' },
+  { role: 'PM', emoji: '📋', desc: 'Scope, roadmap, stakeholder reports' },
+];
+---
+
+<Landing>
+  <!-- Hero Section -->
+  <section class="relative pt-28 pb-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
+    <!-- Background gradient -->
+    <div class="absolute inset-0 bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 pointer-events-none"></div>
+    <div class="absolute top-20 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-blue-600/10 rounded-full blur-3xl pointer-events-none"></div>
+    <div class="absolute top-20 left-1/2 -translate-x-1/4 w-[600px] h-[300px] bg-purple-600/10 rounded-full blur-3xl pointer-events-none"></div>
+
+    <div class="relative max-w-7xl mx-auto">
+      <div class="text-center max-w-4xl mx-auto">
+        <!-- Badge -->
+        <div class="inline-flex items-center gap-2 bg-blue-500/10 border border-blue-500/20 rounded-full px-4 py-1.5 text-blue-400 text-sm font-medium mb-8">
+          <span class="w-1.5 h-1.5 bg-blue-400 rounded-full animate-pulse"></span>
+          Available on DigitalOcean Marketplace
+        </div>
+
+        <!-- Headline -->
+        <h1 class="text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight mb-6">
+          <span class="text-white">Your AI Team,</span><br />
+          <span class="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">Ready to Deploy</span>
+        </h1>
+
+        <!-- Subhead -->
+        <p class="text-xl text-slate-400 max-w-2xl mx-auto mb-10 leading-relaxed">
+          Mission Clawtrol gives you 9 specialized AI agents that write code, review work, research, and manage projects — orchestrated from one dashboard.
+        </p>
+
+        <!-- CTAs -->
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a
+            href="#"
+            class="inline-flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-500 text-white font-semibold px-8 py-3.5 rounded-xl transition-all hover:scale-105 hover:shadow-lg hover:shadow-blue-500/25 text-lg"
+          >
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z"/></svg>
+            Deploy on DigitalOcean
+          </a>
+          <a
+            href="/docs"
+            class="inline-flex items-center justify-center gap-2 bg-slate-800 hover:bg-slate-700 text-white font-semibold px-8 py-3.5 rounded-xl transition-all border border-slate-700 hover:border-slate-600 text-lg"
+          >
+            View Documentation →
+          </a>
+        </div>
+      </div>
+
+      <!-- Terminal Mockup -->
+      <div class="mt-16 max-w-4xl mx-auto">
+        <div class="bg-slate-900 rounded-2xl border border-slate-700/50 shadow-2xl shadow-black/50 overflow-hidden">
+          <!-- Terminal header -->
+          <div class="flex items-center gap-2 px-4 py-3 bg-slate-800/50 border-b border-slate-700/50">
+            <div class="w-3 h-3 rounded-full bg-red-500/80"></div>
+            <div class="w-3 h-3 rounded-full bg-yellow-500/80"></div>
+            <div class="w-3 h-3 rounded-full bg-green-500/80"></div>
+            <span class="ml-2 text-slate-500 text-xs font-mono">Mission Clawtrol Dashboard</span>
+          </div>
+          <!-- Dashboard mockup content -->
+          <div class="p-6 font-mono text-sm">
+            <!-- Project header -->
+            <div class="flex items-center justify-between mb-4">
+              <div class="text-blue-400 font-semibold">📁 my-saas-app</div>
+              <div class="text-slate-500 text-xs">3 agents active · $0.42 today</div>
+            </div>
+            <!-- Kanban columns -->
+            <div class="grid grid-cols-4 gap-3 text-xs">
+              <div>
+                <div class="text-slate-500 uppercase tracking-wider mb-2 text-[10px]">Backlog</div>
+                <div class="bg-slate-800 rounded-lg p-2.5 border border-slate-700 mb-2">
+                  <div class="text-slate-300">Add Stripe billing</div>
+                  <div class="text-slate-500 mt-1">📋 PM</div>
+                </div>
+                <div class="bg-slate-800 rounded-lg p-2.5 border border-slate-700">
+                  <div class="text-slate-300">Write API docs</div>
+                  <div class="text-slate-500 mt-1">✍️ Editor</div>
+                </div>
+              </div>
+              <div>
+                <div class="text-slate-500 uppercase tracking-wider mb-2 text-[10px]">In Progress</div>
+                <div class="bg-slate-800 rounded-lg p-2.5 border border-blue-500/40 mb-2 ring-1 ring-blue-500/20">
+                  <div class="text-slate-200 font-medium">Build auth system</div>
+                  <div class="text-blue-400 mt-1">💻 Senior Dev</div>
+                  <div class="mt-2 bg-slate-700 rounded-full h-1">
+                    <div class="bg-blue-500 rounded-full h-1 w-3/4"></div>
+                  </div>
+                </div>
+                <div class="bg-slate-800 rounded-lg p-2.5 border border-purple-500/40 ring-1 ring-purple-500/20">
+                  <div class="text-slate-200 font-medium">Research competitors</div>
+                  <div class="text-purple-400 mt-1">🔬 Sr. Researcher</div>
+                  <div class="mt-2 bg-slate-700 rounded-full h-1">
+                    <div class="bg-purple-500 rounded-full h-1 w-1/2"></div>
+                  </div>
+                </div>
+              </div>
+              <div>
+                <div class="text-slate-500 uppercase tracking-wider mb-2 text-[10px]">Review</div>
+                <div class="bg-slate-800 rounded-lg p-2.5 border border-yellow-500/40 ring-1 ring-yellow-500/20">
+                  <div class="text-slate-200 font-medium">Setup CI/CD pipeline</div>
+                  <div class="text-yellow-400 mt-1">🧪 QA Review</div>
+                  <div class="text-slate-500 text-[10px] mt-1">Checking done criteria...</div>
+                </div>
+              </div>
+              <div>
+                <div class="text-slate-500 uppercase tracking-wider mb-2 text-[10px]">Done ✓</div>
+                <div class="bg-slate-800/50 rounded-lg p-2.5 border border-slate-700/50 mb-2 opacity-70">
+                  <div class="text-slate-400 line-through">Init repo structure</div>
+                  <div class="text-green-400 mt-1">✅ Complete</div>
+                </div>
+                <div class="bg-slate-800/50 rounded-lg p-2.5 border border-slate-700/50 opacity-70">
+                  <div class="text-slate-400 line-through">Write PROJECT.md</div>
+                  <div class="text-green-400 mt-1">✅ Complete</div>
+                </div>
+              </div>
+            </div>
+            <!-- Agent activity log -->
+            <div class="mt-4 pt-4 border-t border-slate-700/50">
+              <div class="text-slate-500 text-[10px] uppercase tracking-wider mb-2">Live Activity</div>
+              <div class="space-y-1 text-xs text-slate-400 font-mono">
+                <div><span class="text-green-400">Senior Dev</span> committed 3 files to feat/auth-system</div>
+                <div><span class="text-purple-400">Sr. Researcher</span> added 12 findings to research doc</div>
+                <div><span class="text-yellow-400">QA</span> started review of CI/CD pipeline task</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Agent Roster Strip -->
+  <section class="py-12 px-4 border-y border-slate-800/60 bg-slate-900/30">
+    <div class="max-w-7xl mx-auto">
+      <p class="text-center text-slate-500 text-sm uppercase tracking-wider mb-8">Your AI team roster</p>
+      <div class="flex flex-wrap justify-center gap-3">
+        {agents.map((agent) => (
+          <div class="flex items-center gap-2 bg-slate-800/60 border border-slate-700/50 rounded-full px-4 py-2 text-sm hover:border-blue-500/40 hover:bg-slate-800 transition-colors">
+            <span class="text-base">{agent.emoji}</span>
+            <span class="text-slate-200 font-medium">{agent.role}</span>
+            <span class="text-slate-500 hidden sm:inline">— {agent.desc}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="py-24 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl sm:text-4xl font-bold text-white mb-4">Everything your dev team needs</h2>
+        <p class="text-slate-400 text-lg max-w-2xl mx-auto">Built for developers and founders who want to move fast without managing a large team.</p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        {features.map((feature) => (
+          <div class="group relative bg-slate-900 hover:bg-slate-800/80 border border-slate-800 hover:border-slate-700 rounded-2xl p-6 transition-all hover:shadow-lg hover:shadow-black/30">
+            <div class="text-4xl mb-4">{feature.icon}</div>
+            <h3 class="text-white font-semibold text-lg mb-2">{feature.title}</h3>
+            <p class="text-slate-400 text-sm leading-relaxed">{feature.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works -->
+  <section class="py-24 px-4 sm:px-6 lg:px-8 bg-slate-900/40">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl sm:text-4xl font-bold text-white mb-4">Up and running in minutes</h2>
+        <p class="text-slate-400 text-lg">From zero to a full AI dev team in 4 steps.</p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        {steps.map((step, i) => (
+          <div class="flex gap-6">
+            <div class="flex-shrink-0 w-12 h-12 rounded-xl bg-blue-600/10 border border-blue-500/20 flex items-center justify-center">
+              <span class="text-blue-400 font-mono font-bold text-sm">{step.num}</span>
+            </div>
+            <div class="flex-1">
+              <h3 class="text-white font-semibold text-xl mb-2">{step.title}</h3>
+              <p class="text-slate-400 mb-4 leading-relaxed">{step.desc}</p>
+              <div class="bg-slate-900 border border-slate-700 rounded-xl p-4 font-mono text-xs text-slate-300 leading-relaxed whitespace-pre">{step.code}</div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing Section -->
+  <section class="py-24 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-4xl mx-auto text-center">
+      <h2 class="text-3xl sm:text-4xl font-bold text-white mb-4">Simple, transparent pricing</h2>
+      <p class="text-slate-400 text-lg mb-12">No subscriptions. No per-seat fees. Pay only for what you use.</p>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+        <!-- Free tier -->
+        <div class="bg-slate-900 border border-slate-700 rounded-2xl p-8 text-left">
+          <div class="text-green-400 font-bold text-sm uppercase tracking-wider mb-2">Mission Clawtrol</div>
+          <div class="text-5xl font-bold text-white mb-1">Free</div>
+          <div class="text-slate-500 text-sm mb-6">Open source, MIT License</div>
+          <ul class="space-y-3 text-slate-300 text-sm">
+            <li class="flex items-center gap-2"><span class="text-green-400">✓</span> Full source code on GitHub</li>
+            <li class="flex items-center gap-2"><span class="text-green-400">✓</span> 9 specialized agent roles</li>
+            <li class="flex items-center gap-2"><span class="text-green-400">✓</span> Unlimited projects & tasks</li>
+            <li class="flex items-center gap-2"><span class="text-green-400">✓</span> All features included</li>
+            <li class="flex items-center gap-2"><span class="text-green-400">✓</span> Self-hosted, your data</li>
+          </ul>
+        </div>
+
+        <!-- Infrastructure costs -->
+        <div class="bg-slate-900 border border-slate-700 rounded-2xl p-8 text-left">
+          <div class="text-blue-400 font-bold text-sm uppercase tracking-wider mb-2">Infrastructure</div>
+          <div class="text-5xl font-bold text-white mb-1">~$12<span class="text-2xl text-slate-400">/mo</span></div>
+          <div class="text-slate-500 text-sm mb-6">DigitalOcean droplet + AI API costs</div>
+          <ul class="space-y-3 text-slate-300 text-sm">
+            <li class="flex items-center gap-2"><span class="text-blue-400">→</span> Droplet: $12–24/mo (2–4GB RAM)</li>
+            <li class="flex items-center gap-2"><span class="text-blue-400">→</span> AI costs: pay-per-token to Anthropic</li>
+            <li class="flex items-center gap-2"><span class="text-blue-400">→</span> Light usage: ~$5–20/mo in API costs</li>
+            <li class="flex items-center gap-2"><span class="text-blue-400">→</span> Heavy usage: scales with your work</li>
+            <li class="flex items-center gap-2"><span class="text-blue-400">→</span> Built-in cost tracking dashboard</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a
+          href="#"
+          class="inline-flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-500 text-white font-semibold px-8 py-3.5 rounded-xl transition-all hover:scale-105 text-lg"
+        >
+          Deploy Now — It's Free
+        </a>
+        <a
+          href="https://github.com/missionclawtrol/mission-clawtrol"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center justify-center gap-2 bg-slate-800 hover:bg-slate-700 text-white font-semibold px-8 py-3.5 rounded-xl transition-all border border-slate-700 text-lg"
+        >
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd"/></svg>
+          View on GitHub
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Social proof / Call to action banner -->
+  <section class="py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-blue-600/10 via-purple-600/10 to-blue-600/10 border-y border-slate-800">
+    <div class="max-w-4xl mx-auto text-center">
+      <h2 class="text-2xl sm:text-3xl font-bold text-white mb-4">
+        Ship faster with a full AI team on your server
+      </h2>
+      <p class="text-slate-400 text-lg mb-8">
+        No per-seat subscriptions. No data leaving your control. Just results.
+      </p>
+      <a
+        href="/docs"
+        class="inline-flex items-center justify-center gap-2 text-blue-400 hover:text-blue-300 font-semibold text-lg transition-colors"
+      >
+        Read the docs to get started →
+      </a>
+    </div>
+  </section>
+</Landing>

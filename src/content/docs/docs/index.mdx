@@ -1,0 +1,99 @@
+---
+title: Getting Started with Mission Clawtrol
+description: Deploy a full AI dev team in minutes. Mission Clawtrol gives you 9 specialized AI agents orchestrated from one dashboard.
+---
+
+import { Card, CardGrid, Steps, Tabs, TabItem } from '@astrojs/starlight/components';
+
+**Mission Clawtrol** is an AI agent orchestration dashboard built on top of [OpenClaw](https://github.com/missionclawtrol/openclaw). It gives you a team of 9 specialized AI agents — developers, researchers, editors, QA, security, and a PM — that work together on your projects autonomously.
+
+You create tasks, assign them to agents, and they execute: writing code, running tests, committing to git, reviewing each other's work, and closing tasks when done. All tracked on a Kanban-style board with cost visibility built in.
+
+Available as a **1-Click App on DigitalOcean Marketplace** — deploy a droplet, run one command, and you have a fully operational AI dev team.
+
+## Prerequisites
+
+Before you begin, make sure you have:
+
+- A **DigitalOcean account** (or access to a Linux server where you can self-host)
+- An **Anthropic API key** (get one at [console.anthropic.com](https://console.anthropic.com))
+- Basic familiarity with SSH and the command line
+
+## Quick Start
+
+<Steps>
+1. **Deploy the droplet**
+
+   Go to the [DigitalOcean Marketplace](#) and launch the Mission Clawtrol 1-Click App. Choose a plan (2GB RAM / $12/mo is enough for light usage; 4GB / $24/mo for heavier workloads).
+
+2. **SSH in and run mc-setup**
+
+   ```bash
+   ssh root@your-droplet-ip
+   mc-setup
+   ```
+
+   Follow the prompts. You'll be asked for your Anthropic API key. That's it — the setup script configures everything.
+
+3. **Open the dashboard**
+
+   Navigate to `http://your-droplet-ip:3001` in your browser. You'll see the Mission Clawtrol dashboard.
+
+4. **Create your first project**
+
+   Click **New Project**, give it a name and description. The system will scaffold a `PROJECT.md` file describing the project context that agents will read before starting work.
+
+5. **Create a task and assign it**
+
+   Click **New Task**, write a clear description of what you want done, select an agent (or let the CSO delegate), and click **Assign & Run**. The agent gets to work.
+</Steps>
+
+## Dashboard Overview
+
+The Mission Clawtrol dashboard has four main areas:
+
+<CardGrid>
+  <Card title="Task Board" icon="list-format">
+    Kanban columns: **Backlog → Todo → In Progress → Review → Done**. Tasks move through automatically as agents work. Drag to reorder or reassign.
+  </Card>
+  <Card title="Agent Roster" icon="puzzle">
+    View all 9 agents, their current status, active tasks, and accumulated costs. Click an agent to see their history and configure behavior.
+  </Card>
+  <Card title="Cost Tracker" icon="information">
+    Real-time token usage and cost estimates per task, project, and agent. See exactly what you're spending before it surprises you.
+  </Card>
+  <Card title="Reports" icon="document">
+    Auto-generated weekly stakeholder reports. Configure Slack delivery or download as Markdown/PDF.
+  </Card>
+</CardGrid>
+
+## The 9-Agent Roster
+
+| Agent | Role |
+|-------|------|
+| 🎯 CSO | Chief Strategist — orchestrates, delegates, plans |
+| 💻 Senior Dev | Architecture, complex features, code review |
+| 🔧 Junior Dev | Implementation, bug fixes, tests |
+| 🔬 Senior Researcher | Deep research, analysis, competitive intelligence |
+| 📚 Junior Researcher | Data gathering, fact-checking, summaries |
+| ✍️ Editor | Documentation, blog posts, communications |
+| 🧪 QA | Test plans, quality reviews, done-criteria checks |
+| 🛡️ Security Auditor | Security audits, vulnerability reviews |
+| 📋 Product Manager | Scope, roadmap, stakeholder reports |
+
+## Next Steps
+
+<CardGrid>
+  <Card title="Detailed Setup Guide" icon="rocket">
+    Full walkthrough of DigitalOcean deployment, `mc-setup`, and initial configuration. [Read the setup guide →](/docs/guides/setup)
+  </Card>
+  <Card title="Agent Guide" icon="puzzle">
+    Learn what each agent does, how to assign tasks, and how the CSO delegates work. [Learn about agents →](/docs/guides/agents)
+  </Card>
+  <Card title="Task Management" icon="list-format">
+    Task lifecycle, assignment, QA review, and how to write effective task descriptions. [Manage tasks →](/docs/guides/tasks)
+  </Card>
+  <Card title="API Reference" icon="open-book">
+    Full REST API documentation for integrations and automation. [View API docs →](/docs/reference/api)
+  </Card>
+</CardGrid>

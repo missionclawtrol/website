@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Starlight customizations */
+:root {
+  --sl-color-accent: #3b82f6;
+  --sl-color-accent-high: #60a5fa;
+}
+
+[data-theme='dark'] {
+  --sl-color-bg: #0f172a;
+  --sl-color-bg-nav: #0f172a;
+  --sl-color-bg-sidebar: #0f172a;
+}
