@@ -34,9 +34,16 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site ?? 'https://missionc
     <title>{title}</title>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 
-    <!-- Google Fonts (system fallback) -->
-    <style>
-      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+    <!-- Tailwind CSS -->
+    <style is:global>
+      @tailwind base;
+      @tailwind components;
+      @tailwind utilities;
     </style>
   </head>
   <body class="bg-slate-950 text-slate-100 font-sans antialiased">
